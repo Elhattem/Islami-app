@@ -17,7 +17,7 @@ class SuraTitelWidgit extends StatelessWidget {
           child: Text(
             suraNumber,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               fontFamily: "El Meseiri",
               fontSize: 20,
               fontWeight: FontWeight.w500,
@@ -33,7 +33,7 @@ class SuraTitelWidgit extends StatelessWidget {
           child: Text(
             suraName,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               fontFamily: "El Meseiri",
               fontSize: 23,
               fontWeight: FontWeight.w500,

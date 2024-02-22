@@ -6,7 +6,7 @@ class ApplactonTheamManager {
       primaryColor: primaryColor,
       useMaterial3: true,
       scaffoldBackgroundColor: Colors.transparent,
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
           toolbarTextStyle: TextStyle(color: Colors.black),
           iconTheme: IconThemeData(color: Colors.black),
           elevation: 0,
@@ -18,7 +18,7 @@ class ApplactonTheamManager {
             fontSize: 30,
             fontWeight: FontWeight.bold,
           )),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: primaryColor,
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Color(0xff707070),
