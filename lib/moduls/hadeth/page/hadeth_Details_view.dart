@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/moduls/hadeth/page/hadeth_view.dart';
+import 'package:provider/provider.dart';
+
+import '../../../config/settings_provider.dart';
 
 class hadethDetailsView extends StatelessWidget {
   static const routName = "hadethDetails";
@@ -8,14 +11,14 @@ class hadethDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var vm = Provider.of<SettingProvider>(context);
     var mediaQuery = MediaQuery.of(context).size;
     var theme = Theme.of(context);
     var args = ModalRoute.of(context)?.settings.arguments as HadethDetailsData;
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/main_background.png"),
-              fit: BoxFit.cover)),
+              image: AssetImage(vm.getBackGround()), fit: BoxFit.cover)),
       child: Scaffold(
         appBar: AppBar(
           title: const Text("إسلامي"),
@@ -31,24 +34,22 @@ class hadethDetailsView extends StatelessWidget {
           ),
           padding: const EdgeInsets.all(15),
           decoration: BoxDecoration(
-              color: const Color(0xFFF8F8F8).withOpacity(0.8),
+              color: vm.isDark()
+                  ? const Color(0xff141A2E).withOpacity(0.8)
+                  : const Color(0xFFF8F8F8).withOpacity(0.8),
               borderRadius: BorderRadius.circular(10)),
           child: Column(
             children: [
-              Text("${args.titel}",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: "El Meseiri",
-                      fontSize: 30,
-                      fontWeight: FontWeight.normal)),
+              Text(
+                "${args.titel}",
+                style: theme.textTheme.bodySmall,
+              ),
               const Divider(thickness: 3, endIndent: 30, indent: 30),
-              Text(args.content,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: "El Meseiri",
-                      fontSize: 22,
-                      fontWeight: FontWeight.normal))
+              Text(
+                args.content,
+                textAlign: TextAlign.center,
+                style: theme.textTheme.bodySmall,
+              )
             ],
           ),
         ),

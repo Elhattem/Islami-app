@@ -14,6 +14,7 @@ class _hadethViewState extends State<hadethView> {
 
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
     var mediQury = MediaQuery.of(context).size;
     if (allHadethData.isEmpty) LoadData();
     return Column(
@@ -25,13 +26,10 @@ class _hadethViewState extends State<hadethView> {
         const Divider(
           thickness: 5,
         ),
-        Text("الأحاديث",
-            style: TextStyle(
-              color: Colors.black,
-              fontFamily: "El Meseiri",
-              fontSize: 20,
-              fontWeight: FontWeight.normal,
-            )),
+        Text(
+          "الأحاديث",
+          style: theme.textTheme.bodyMedium,
+        ),
         const Divider(
           thickness: 5,
         ),
@@ -43,16 +41,11 @@ class _hadethViewState extends State<hadethView> {
                     arguments: allHadethData[index]);
               },
               child: Text(
-                allHadethData[index].titel,
+                    allHadethData[index].titel,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: "El Meseiri",
-                  fontSize: 20,
-                  fontWeight: FontWeight.normal,
-                ),
+                style: theme.textTheme.bodyMedium,
               ),
-            ),
+                ),
             itemCount: allHadethData.length,
           ),
         )
